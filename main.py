@@ -1,18 +1,22 @@
 from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
+from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
 
 #import templates
 templates = Jinja2Templates(directory="templates")
 
+#import static
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
 #dummy data
 posts: list[dict] = [
     {
         "id": 1,
         "author": "Dennis Fang",
-        "title": "FastAPI is Awesome",
-        "content": "This is a good framework.",
+        "title": "DevOps is Awesome",
+        "content": "This is a good method.",
         "date_posted": "March 24, 2026",
     },
     {
