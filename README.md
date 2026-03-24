@@ -2,16 +2,12 @@
 
 A robust backend web application built with **Python** and **FastAPI**, focused on demonstrating modern **RESTful API** design and **DevOps** integration. This project serves as a practical implementation of containerized services deployment workflows.
 
----
-
 ## Project Objective
 The goal of this project is to provide a scalable backend service that handles structured data via standard HTTP methods.
 
 * **RESTful Architecture:** Supports `GET`, `POST`, `PUT`, and `DELETE` requests.
 * **Data Exchange:** Returns structured **JSON** responses for seamless frontend integration.
 * **Learning Focus:** Designed to bridge the gap between backend development and DevOps practices.
-
----
 
 ## Development & Testing Workflow
 Code is written using **Python** and **FastAPI**. Initial testing is performed locally using:
