@@ -10,4 +10,4 @@ wheels/
 .venv
 
 #database
-.blog.db
+blog.db
