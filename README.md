@@ -26,3 +26,9 @@ We follow a structured **Git workflow**:
 ### 3. Automated Testing
 We focus on code-based testing to verify:
 * Correct **HTTP Status Codes** (e.g., `200 OK`, `201 Created`, `404 Not Found`).
+
+
+### Before run the project
+1. delete blog.db 
+2. create your .env file
+   * create your secret key: SECRET_KEY=your secret key
