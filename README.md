@@ -32,3 +32,6 @@ We focus on code-based testing to verify:
 1. delete blog.db 
 2. create your .env file
    * create your secret key: SECRET_KEY=your secret key
+
+
+Test github actions
