@@ -3,7 +3,7 @@ name: Build and Deploy to Azure
 on:
   push:
     branches:
-      - main
+      - development  
 
 jobs:
   build-and-deploy:
@@ -35,3 +35,17 @@ jobs:
         with:
           app-name: fastapitest007
           images: ${{ secrets.REGISTRY_LOGIN_SERVER }}/fastapi-app:${{ github.sha }}
+          
+          app-settings-json: |
+            [
+              {
+                "name": "SecretKey",
+                "value": "${{ secrets.SECRET_KEY }}",
+                "slotSetting": false
+              },
+              {
+                "name": "SecretKeyValue",
+                "value": "${{ secrets.SECRET_KEY_VALUE }}",
+                "slotSetting": false
+              }
+            ]
