@@ -1,8 +1,11 @@
 services:
   example:
     build: .
-
-    # ...
+    ports:
+      - "8000:8000"
+    environment:
+      - SecretKey=${SECRET_KEY}
+      - SecretKeyValue=${SECRET_KEY_VALUE}
 
     develop:
       # Create a `watch` configuration to update the app
