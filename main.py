@@ -18,7 +18,6 @@ import models
 from database import Base, engine, get_db
 from routers import posts, users
 
-from uvicorn.middleware.proxy_headers import ProxyHeadersMiddleware
 
 @asynccontextmanager
 async def lifespan(_app: FastAPI):
@@ -31,8 +30,6 @@ async def lifespan(_app: FastAPI):
 
 
 app = FastAPI(lifespan=lifespan)
-
-app.add_middleware(ProxyHeadersMiddleware, trusted_hosts="*")
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 app.mount("/media", StaticFiles(directory="media"), name="media")
@@ -123,6 +120,15 @@ async def register_page(request: Request):
         request,
         "register.html",
         {"title": "Register"},
+    )
+
+
+@app.get("/account", include_in_schema=False)
+async def account_page(request: Request):
+    return templates.TemplateResponse(
+        request,
+        "account.html",
+        {"title": "Account"},
     )
 
 
