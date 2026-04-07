@@ -1,5 +1,6 @@
 from contextlib import asynccontextmanager
 from typing import Annotated
+from uvicorn.middleware.proxy_headers import ProxyHeadersMiddleware
 
 from fastapi import Depends, FastAPI, HTTPException, Request, status
 from fastapi.exception_handlers import (
@@ -30,6 +31,7 @@ async def lifespan(_app: FastAPI):
 
 
 app = FastAPI(lifespan=lifespan)
+app.add_middleware(ProxyHeadersMiddleware, trusted_hosts="*")
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 app.mount("/media", StaticFiles(directory="media"), name="media")

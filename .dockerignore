@@ -1,52 +1,52 @@
 # Git
-.git
-.gitignore
-.gitattributes
+.git                    # Git repository metadata
+.gitignore              # Git ignore rules file
+.gitattributes          # Git attributes configuration
 
 # Python
-__pycache__
-*.py[cod]
-*.pyo
-.pytest_cache
-.mypy_cache
-.ruff_cache
-*.egg-info
-dist/
-build/
+__pycache__             # Compiled Python bytecode cache
+*.py[cod]               # Compiled Python files (.pyc, .pyo, .pyd)
+*.pyo                   # Optimized Python bytecode
+.pytest_cache           # Pytest cache directory
+.mypy_cache             # MyPy type-checking cache
+.ruff_cache             # Ruff linter cache
+*.egg-info              # Python package metadata
+dist/                   # Distribution/build output
+build/                  # Build artifacts
 
-# 虚拟环境（由 uv 在容器内重建）
-.venv
-venv/
-env/
+# Virtual environments (recreated inside container by uv)
+.venv                   # Local virtual environment
+venv/                   # Alternative virtual environment name
+env/                    # Another common virtual environment name
 
-# 环境变量（敏感信息，绝对不能打包进镜像）
-.env
-.env.*
-!.env.example
+# Environment variables (sensitive, must NEVER be included in image)
+.env                    # Main environment file
+.env.*                  # Other environment variants (e.g., .env.dev)
+!.env.example           # Keep example env file (safe template)
 
-# 开发工具
-.vscode/
-.idea/
-*.swp
-*.swo
+# Development tools
+.vscode/                # VS Code settings
+.idea/                  # JetBrains IDE settings
+*.swp                   # Vim swap file
+*.swo                   # Vim swap file (alternate)
 
-# 测试
-tests/
-test_*
-*_test.py
+# Tests
+tests/                  # Test directory
+test_*                  # Test files (prefix)
+*_test.py               # Test files (suffix)
 
-# 文档
-README.md
-docs/
+# Documentation
+README.md               # Project readme
+docs/                   # Documentation folder
 
-# Docker 自身
-Dockerfile*
-docker-compose*.yml
-.dockerignore
+# Docker itself
+Dockerfile*             # Dockerfiles
+docker-compose*.yml     # Docker Compose configs
+.dockerignore           # Docker ignore file itself
 
-# 本地数据库文件
-*.db
-*.sqlite3
+# Local database files
+*.db                    # SQLite / generic DB files
+*.sqlite3               # SQLite database files
 
-# 媒体文件（运行时挂载，不打包进镜像）
-# media/
+# Media files (mounted at runtime, not included in image)
+# media/                # Uncomment if you want to exclude media files
